@@ -1,5 +1,6 @@
 {
 	"name": "online-calculator",
+	"homepage": "https://anastasiapudina.github.io/tt-online-calculator/",
 	"private": true,
 	"version": "0.0.0",
 	"type": "module",
