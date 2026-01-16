@@ -62,7 +62,7 @@ export const App = observer(() => {
 												Период наблюдения, мес.
 											</Typography>
 											<Typography textAlign="center" variant="body2" flex={1}>
-												Общая выживаемость h₀(t), %
+												Базовый риск смерти h₀(t), %
 											</Typography>
 										</Stack>
 									</td>
