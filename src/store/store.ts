@@ -21,6 +21,9 @@ class AppStore {
 			timeWithoutTherapy: observable,
 			setTimeWithoutTherapy: action.bound,
 			timeWithoutTherapyBool: computed,
+
+			grahpData: observable,
+			buildGraph: action.bound,
 		})
 	}
 
@@ -68,14 +71,33 @@ class AppStore {
 		return this.timeWithoutTherapy! <= 17
 	}
 
-	get totalRisk() {
+	/** Считает степень */
+	private countDegree() {
 		const degree =
 			2.554 * Number(!this.objectiveAnswer) +
 			2.331 * Number(this.progressOnPrimaryTherapy) +
 			1.916 * Number(this.timeWithoutProgressionOnPrimaryTherapyBool) +
 			3.178 * Number(this.timeWithoutTherapyBool)
 
-		return (this.baseRisk || 0) * Math.exp(degree)
+		return degree
+	}
+
+	/** Считает h(t) */
+	private countTotalRisk(baseRisk: number) {
+		return baseRisk * Math.exp(this.countDegree())
+	}
+
+	get totalRisk() {
+		return this.countTotalRisk(this.baseRisk || 0)
+	}
+
+	/** набор h(t) для графика, набор значений t берем из таблицы BaseRiskValues поле period */
+	public grahpData: number[] = []
+
+	public buildGraph() {
+		this.grahpData = BaseRiskValues.map(value =>
+			this.countTotalRisk(value.survival)
+		)
 	}
 }
 

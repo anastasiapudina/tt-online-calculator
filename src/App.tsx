@@ -9,11 +9,13 @@ import {
 	Stack,
 	Box,
 	Divider,
+	Button,
 } from "@mui/material"
 import NumberField from "./components/NumberField"
 import { BaseRiskValues } from "./store/constants"
 import { observer } from "mobx-react-lite"
 import { Store } from "./store/store"
+import { LineChart } from "@mui/x-charts"
 
 const lightTheme = createTheme({
 	palette: {
@@ -132,6 +134,31 @@ export const App = observer(() => {
 						onValueChange={Store.setTimeWithoutTherapy}
 						value={Store.timeWithoutTherapy}
 					/>
+					{!!Store.grahpData.length && (
+						<LineChart
+							xAxis={[{ data: BaseRiskValues.map(item => item.period) }]}
+							series={[
+								{
+									data: Store.grahpData,
+									type: "line",
+									strictStepCurve: true,
+									curve: "stepBefore",
+									showMark: false,
+								},
+							]}
+							height={300}
+							grid={{ vertical: true, horizontal: true }}
+						/>
+					)}
+					<Button
+						color="secondary"
+						variant="contained"
+						onClick={Store.buildGraph}>
+						{!!Store.grahpData.length
+							? "Перестроить график"
+							: "Построить график"}
+					</Button>
+
 					<Divider />
 					<Box
 						sx={{

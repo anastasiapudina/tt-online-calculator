@@ -16,4 +16,4 @@ export const BaseRiskValues = [
 	{ id: 15, period: 61.0, survival: 71.5 },
 	{ id: 16, period: 81.0, survival: 87.0 },
 	{ id: 17, period: 82.0, survival: 127.5 },
-]
+] as const
