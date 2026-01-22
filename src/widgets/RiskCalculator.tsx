@@ -12,11 +12,11 @@ import {
 import NumberField from "../components/NumberField"
 import { BaseRiskValues } from "../store/constants"
 import { observer } from "mobx-react-lite"
-import { Store } from "../store/store"
+import { RootStore } from "../store/store"
 import { LineChart } from "@mui/x-charts"
 
 export const RiskCalculator = observer(() => {
-	const store = Store.RiskCalculator
+	const store = RootStore.RiskCalculator
 	return (
 		<Container maxWidth="sm">
 			<Box
