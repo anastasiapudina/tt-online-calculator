@@ -1,5 +1,4 @@
 import { action, computed, makeObservable, observable } from "mobx"
-import { timeLine } from "./constants"
 
 export class ProbabilityCalculatorManager {
 	sitesQuantity: number = NaN
@@ -14,9 +13,6 @@ export class ProbabilityCalculatorManager {
 			setTimeWithoutProgress: action,
 
 			totalProbability: computed,
-
-			grahpData: observable,
-			buildGraph: action.bound,
 		})
 	}
 
@@ -39,13 +35,5 @@ export class ProbabilityCalculatorManager {
 
 	get totalProbability() {
 		return this.countTotalProbability(this.timeWithoutProgress || 0)
-	}
-
-	public grahpData: number[] = []
-
-	public buildGraph() {
-		this.grahpData = timeLine.map(value =>
-			this.countTotalProbability(value.period)
-		)
 	}
 }

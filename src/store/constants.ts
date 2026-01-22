@@ -17,16 +17,3 @@ export const BaseRiskValues = [
 	{ id: 16, period: 81.0, survival: 87.0 },
 	{ id: 17, period: 82.0, survival: 127.5 },
 ] as const
-
-export const timeLine = [
-	{ period: 6 / 12, months: 6 },
-	{ period: 12 / 12, months: 12 },
-	{ period: 18 / 12, months: 18 },
-	{ period: 24 / 12, months: 24 },
-	{ period: 30 / 12, months: 30 },
-	{ period: 36 / 12, months: 36 },
-	{ period: 42 / 12, months: 42 },
-	{ period: 48 / 12, months: 48 },
-	{ period: 54 / 12, months: 54 },
-	{ period: 60 / 12, months: 60 },
-] as const

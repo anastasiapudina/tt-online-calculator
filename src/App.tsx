@@ -24,11 +24,10 @@ export const App = observer(() => {
 					marginTop: 1,
 				}}>
 				<Select
-					//classNames={{ singleValue:  }}
 					options={[
 						{
 							value: CalculatorType.Probability,
-							label: "Вероятность смертности",
+							label: "Вероятность прогрессирования",
 						},
 						{
 							value: CalculatorType.Risk,

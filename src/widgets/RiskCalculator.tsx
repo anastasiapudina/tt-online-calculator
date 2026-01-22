@@ -7,7 +7,6 @@ import {
 	Box,
 	Divider,
 	Button,
-	Stack,
 } from "@mui/material"
 import NumberField from "../components/NumberField"
 import { BaseRiskValues } from "../store/constants"
@@ -47,7 +46,7 @@ export const RiskCalculator = observer(() => {
 						value={store.observablePeriod}
 					/>
 
-					<table>
+					{/* <table>
 						<thead>
 							<tr>
 								<td>
@@ -86,7 +85,7 @@ export const RiskCalculator = observer(() => {
 								</tr>
 							))}
 						</tbody>
-					</table>
+					</table> */}
 				</Card>
 
 				<FormControlLabel

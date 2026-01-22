@@ -1,9 +1,7 @@
-import { Container, Typography, Box, Divider, Button } from "@mui/material"
+import { Container, Typography, Box, Divider } from "@mui/material"
 import NumberField from "../components/NumberField"
-import { timeLine } from "../store/constants"
 import { observer } from "mobx-react-lite"
 import { RootStore } from "../store/store"
-import { LineChart } from "@mui/x-charts"
 
 export const ProbabilityCalculator = observer(() => {
 	const store = RootStore.ProbabilityCalculator
@@ -16,9 +14,8 @@ export const ProbabilityCalculator = observer(() => {
 					gap: "1.5rem",
 				}}>
 				<Typography variant="subtitle1" component="p" align="center">
-					Прогностическая модель для определения вероятности ВПР плода в
-					зависимости от анамнестических факторов методом бинарной логистической
-					регрессии
+					Прогностическая модель для определения вероятности прогрессирования
+					заболевания на фоне повторного проведения ТТ
 				</Typography>
 
 				<NumberField
@@ -39,29 +36,6 @@ export const ProbabilityCalculator = observer(() => {
 					onValueChange={store.setTimeWithoutProgress}
 					value={store.timeWithoutProgress || 0}
 				/>
-
-				{!!store.grahpData.length && (
-					<LineChart
-						xAxis={[{ data: timeLine.map(item => item.months) }]}
-						series={[
-							{
-								data: store.grahpData,
-								type: "line",
-								strictStepCurve: true,
-								curve: "stepBefore",
-								showMark: false,
-							},
-						]}
-						height={300}
-						grid={{ vertical: true, horizontal: true }}
-					/>
-				)}
-				<Button
-					color="secondary"
-					variant="contained"
-					onClick={store.buildGraph}>
-					{!!store.grahpData.length ? "Перестроить график" : "Построить график"}
-				</Button>
 
 				<Divider />
 				<Box
@@ -84,7 +58,7 @@ export const ProbabilityCalculator = observer(() => {
 					!isNaN(store.sitesQuantity as number) && (
 						<Box>
 							<Typography variant="h4" textAlign="center">
-								Вероятность смерти пациента
+								Вероятность прогрессирования пациента
 							</Typography>
 							<Typography variant="h2" textAlign="center">
 								{store.totalProbability.toFixed(1)}%
