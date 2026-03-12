@@ -1,10 +1,10 @@
 import { Container, ThemeProvider, createTheme } from "@mui/material"
 
-import { RiskCalculator } from "./widgets/RiskCalculator"
+//import { RiskCalculator } from "./widgets/RiskCalculator"
 import { ProbabilityCalculator } from "./widgets/ProbabilityCalculator"
 import { observer } from "mobx-react-lite"
-import { CalculatorType, RootStore } from "./store/store"
-import Select from "react-select"
+//import { CalculatorType, RootStore } from "./store/store"
+//import Select from "react-select"
 
 const lightTheme = createTheme({
 	palette: {
@@ -15,7 +15,7 @@ const lightTheme = createTheme({
 export const App = observer(() => {
 	return (
 		<ThemeProvider theme={lightTheme}>
-			<Container
+			{/* <Container
 				sx={{
 					display: "flex",
 					height: !RootStore.calculatorType ? "100vh" : "auto",
@@ -37,15 +37,16 @@ export const App = observer(() => {
 					onChange={item => item && RootStore.setCalculatorType(item.value)}
 					placeholder="Выберите калькулятор"
 				/>
-			</Container>
+			</Container> */}
 			<Container sx={{ display: "flex", flexDirection: "row" }}>
-				{!!RootStore.calculatorType ? (
+				<ProbabilityCalculator />
+				{/* !!RootStore.calculatorType ? (
 					RootStore.calculatorType === CalculatorType.Probability ? (
 						<ProbabilityCalculator />
 					) : (
 						<RiskCalculator />
 					)
-				) : null}
+				) : null */}
 			</Container>
 		</ThemeProvider>
 	)

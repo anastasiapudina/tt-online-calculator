@@ -14,8 +14,8 @@ export const ProbabilityCalculator = observer(() => {
 					gap: "1.5rem",
 				}}>
 				<Typography variant="subtitle1" component="p" align="center">
-					Прогностическая модель для определения вероятности прогрессирования
-					заболевания на фоне повторного проведения ТТ
+					Прогностическая модель риска летального исхода при повторном
+					проведении ТТ
 				</Typography>
 
 				<NumberField
