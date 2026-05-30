@@ -29,7 +29,7 @@ export const ProbabilityCalculator = observer(() => {
 				/>
 				<NumberField
 					label="Время без прогрессирования на первичной ТТ"
-					helperText="Полных лет"
+					helperText="В месяцах"
 					min={0}
 					max={100}
 					size="small"
